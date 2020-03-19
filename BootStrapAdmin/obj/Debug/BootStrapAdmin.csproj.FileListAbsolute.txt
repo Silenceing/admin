@@ -1,0 +1,6 @@
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\bin\BootStrapAdmin.dll.config
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\bin\BootStrapAdmin.dll
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\bin\BootStrapAdmin.pdb
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\obj\Debug\BootStrapAdmin.csprojResolveAssemblyReference.cache
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\obj\Debug\BootStrapAdmin.dll
+D:\workspace\C#\layuiAdmin\BootStrapAdmin\obj\Debug\BootStrapAdmin.pdb
