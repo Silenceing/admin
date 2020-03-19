@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="../plugins/layui/layui-2.4.5/dist/css/layui.css">
+    <script type="text/javascript" src="../plugins/jQuery/jquery-2.1.4/jquery.min.js"></script>
+
+
+    <style>
+        /* 以下实际使用若已初始化可删除 .nav height父级需逐级设置为100%*/
+        body, html {
+            height: 100%;
+            background: #E2E2E2;
+        }
+
+        body, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 14px "微软雅黑","宋体","Arial Narrow",HELVETICA;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /*.menu {
+            width: 220px;
+            height: 100%;
+            background: #263238;
+            transition: all .3s;
+        }*/
+
+
+
+        /*导航栏初始渲染*/
+        .layui-nav {
+            width: 220px;
+            height: 100%;
+            background: #263238;
+            transition: all .3s;
+        }
+            .layui-nav a {
+                display: block;
+                overflow: hidden;
+                padding-left: 20px;
+                line-height: 46px;
+                max-height: 46px;
+                color: #ABB1B7;
+                transition: all .3s;
+            }
+                .layui-nav a span {
+                    margin-left: 30px;
+                }
+        .layui-nav-item {
+            position: relative;
+        }
+        .layui-nav-item.nav-show {
+            border-bottom: none;
+        }
+        .layui-nav-item ul {
+            display: none;
+            background: rgba(0,0,0,.1);
+        }
+        .layui-nav-item.nav-show ul {
+            display: block;
+        }
+        .layui-nav-item > a:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 2px;
+            height: 46px;
+            background: #34A0CE;
+            opacity: 0;
+            transition: all .3s;
+        }
+        .layui-nav .layui-icon {
+            font-size: 20px;
+            position: absolute;
+            margin-left: -1px;
+        }
+
+
+
+
+        /* nav-mini */
+        .nav-mini.layui-nav {
+            width: 100px;
+        }
+
+            .nav-mini.layui-nav .layui-nav-icon { /* margin-left:-2px; */
+            }
+
+        .nav-mini.layui-nav .layui-nav-item > a span {
+            display: none;
+        }
+
+        .nav-mini.layui-nav .nav-more {
+            margin-right: -20px;
+        }
+
+        .nav-mini.layui-nav .layui-nav-item ul {
+            position: absolute;
+            top: 0px;
+            left: 60px;
+            width: 180px;
+            z-index: 99;
+            background: #3C474C;
+            overflow: hidden;
+        }
+
+        .nav-mini.layui-nav .layui-nav-item:hover {
+            background: rgba(255,255,255,.1);
+        }
+
+            .nav-mini.layui-nav .layui-nav-item:hover .layui-nav-item a {
+                color: #FFF;
+            }
+
+            .nav-mini.layui-nav .layui-nav-item:hover a:before {
+                opacity: 1;
+            }
+
+            .nav-mini.layui-nav .layui-nav-item:hover ul {
+                display: block;
+            }
+
+        /*---------------------*/
+        .nav-more {
+            float: right;
+            margin-right: 20px;
+            font-size: 12px;
+            transition: transform .3s;
+        }
+            /* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
+            .nav-more::after {
+                content: "\e621";
+            }
+        /*---------------------*/
+        .nav-show .nav-more {
+            transform: rotate(90deg);
+        }
+
+        .nav-show, .layui-nav-item > a:hover {
+            color: #FFF;
+            background: rgba(0,0,0,.1);
+        }
+
+            .nav-show > a:before, .layui-nav-item > a:hover:before {
+                opacity: 1;
+            }
+
+        .layui-nav-item li:hover a {
+            color: #FFF;
+            background: rgba(0, 0, 0,.1);
+        }
+    </style>
+
+</head>
+<body class="layuimini-bg-color layuimini-all">
+<div class="layui-layout layui-layout-admin">
+
+    <div class="menu">
+
+
+        <div class="layui-header header">
+            <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png"></div>
+
+        </div>
+
+
+        <div class="layui-nav">
+            <ul>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon layui-icon-website" style="font-size: 30px; color: #1E9FFF;"></i><span>网站配置</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="javascript:;"><span>网站设置</span></a></li>
+                        <li><a href="javascript:;"><span>友情链接</span></a></li>
+                        <li><a href="javascript:;"><span>分类管理</span></a></li>
+                        <li><a href="javascript:;"><span>系统日志</span></a></li>
+                    </ul>
+
+                </li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon layui-icon-read" style="font-size: 30px; color: #1E9FFF;"></i><span>文章管理</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="javascript:;"><span>网站设置</span></a></li>
+                        <li><a href="javascript:;"><span>友情链接</span></a></li>
+                        <li><a href="javascript:;"><span>分类管理</span></a></li>
+                        <li><a href="javascript:;"><span>系统日志</span></a></li>
+                    </ul>
+
+                </li>
+
+                <li class="layui-nav-item">
+
+                    <a href="javascript:;"><i class="layui-icon layui-icon-form" style="font-size: 30px; color: #1E9FFF;"></i><span>订单管理</span><i class="my-icon nav-more"></i></a>
+                    <ul>
+                        <li><a href="javascript:;"><span>网站设置</span></a></li>
+                        <li><a href="javascript:;"><span>友情链接</span></a></li>
+                        <li><a href="javascript:;"><span>分类管理</span></a></li>
+                        <li><a href="javascript:;"><span>系统日志</span></a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+
+</div>    
+    <script src="../plugins/layui/layui-2.4.5/dist/layui.js"></script>
+    <script>
+        $(function () {
+
+            layui.use('element', function () {
+                var element = layui.element;
+
+            });
+
+
+            //$('.layui-nav-item>a').on('click', function () {
+            //    if (!$('.layui-nav').hasClass('nav-mini')) {
+            //        if ($(this).next().css('dispaly') == 'none') {
+            //            $('.layui-nav-item').children('ul').slideUp(300);
+            //            $(this).next('ul').slideDown(300);
+            //            $(this).paremt('li').addClass('nav-show').siblings('li').removeClass('nav-show');
+            //        }
+            //        else {
+
+            //            $(this).next('ul').slideDown(300);
+            //            $('.layui-nav-item .nav-show').removeClass('nav-show');
+            //        }
+
+            //    }
+
+
+
+            //})
+
+            //$('#mini').on('click', function () {
+            //    if (!$('.layui-nav').hasClass('nav-mini')) {
+            //        $('.layui-nav-item .nav-show').removeClass('nav-show');
+            //        $('.layui-nav-item').children('ul').removeAttr('style');
+
+            //        $('.layui-nav').addClass('nav-mini');
+            //    }
+            //    else {
+            //        $('.layui-nav').removeClass('nav-mini');
+            //    }
+
+
+            //})
+
+            //nav-item下第一个选择器的子元素a，用于一级菜单
+            $('.layui-nav-item>a').on('click', function () {
+                if (!$('.layui-nav').hasClass('nav-mini')) {
+                    //找到每个段落的后面紧邻的同辈元素。
+                    if ($(this).next().css('display') == "none") {
+                        //展开未展开通过高度变化（向上减小）来动态地隐藏所有匹配的元素，在隐藏完成后可选地触发一个回调函数。
+                        $('.layui-nav-item').children('ul').slideUp(300);
+                        $(this).next('ul').slideDown(300);
+                        $(this).parent('li').addClass('nav-show').siblings('li').removeClass('nav-show');
+                    } else {
+                        //收缩已展开
+                        $(this).next('ul').slideUp(300);
+                        $('.layui-nav-item.nav-show').removeClass('nav-show');
+                    }
+                }
+            });
+
+
+
+            //点击事件
+            $('#mini').on('click', function () {
+                //判断是否具有目标类，没有进入
+                if (!$('.layui-nav').hasClass('nav-mini')) {
+                    //绑定并移除该标签下的类
+                    $('.layui-nav-item.nav-show').removeClass('nav-show');
+                    //用以过滤子元素的表达式 移除样式类 
+                    $('.layui-nav-item').children('ul').removeAttr('style');
+                    //添加类
+                    $('.layui-nav').addClass('nav-mini');
+                } else {
+                    $('.layui-nav').removeClass('nav-mini');
+                }
+            });
+        })
+
+
+    </script>
+
+
+
+</body>
+</html>

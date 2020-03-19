@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>layout 后台大布局 - Layui</title>
+    <link rel="stylesheet" href="../plugins/layui/layui-2.4.5/dist/css/layui.css">
+    <script type="text/javascript" src="../plugins/jQuery/jquery-2.1.4/jquery.min.js"></script>
+
+    <style>
+        .layui-side  {
+            width: 200px;
+            overflow:hidden;
+        }
+        
+
+    </style>
+
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo" style="width: 100px; ">后台布局</div>
+            
+            
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item" style="color:red"><p class="layui-icon layui-icon-menu-fill" style="font-size: 30px; color: #1E9FFF;"  ></p></li>
+                               
+                <li class="layui-nav-item"><a href="">控制台</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="">测试1</a>
+                            <a href="">测试2</a>
+                        </dd>
+                    </dl>
+                </li>
+
+                <li class="layui-nav-item"><a href="">商品管理</a></li>
+                <li class="layui-nav-item"><a href="">用户</a></li>
+
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">邮件管理</a></dd>
+                        <dd><a href="">消息管理</a></dd>
+                        <dd><a href="">授权管理</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                        用户
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退了</a></li>
+            </ul>
+        </div>
+
+        
+        <div class="layui-side layui-bg-black" width="100px">
+            <div class="layui-side-scroll">
+
+                <!--<div class="layuimini-tool" id="mini">
+                <i class="layui-icon layui-icon-template-1" style="font-size: 30px; color: #1E9FFF;">
+                 <span>目录</span>
+                </i>
+            </div>-->
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">所有商品</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="table/table.html">列表一</a></dd>
+                            <dd><a href="table/table1.html">列表二</a></dd>
+                            <dd><a href="table/table2.html">列表三</a></dd>
+                            <dd><a href="https://www.baidu.com/">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="table/table3.html">列表一</a></dd>
+                            <dd><a href="./mytest.html">列表二</a></dd>
+                            <dd><a href="https://www.baidu.com/">超链接</a></dd>
+                            <dd><iframe id="test" onclick="jump()" width="500px" height="300px">首页</iframe></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="./mytest.html">表格1</a></li>
+                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <!--<div style="padding: 15px;">内容主体区域</div>-->
+            <iframe id="iframeMain" src="" frameborder="0" height="100%" width="100%"></iframe>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+    <script src="../plugins/layui/layui-2.4.5/dist/layui.js"></script>
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element;
+
+        });
+
+        $(document).ready(function () {
+            $("dd>a").click(function (e) {
+                e.preventDefault();
+                //设置或返回被选元素的属性值。
+                //将所有的的框架的源地址设置到本地
+                $("#iframeMain").attr("src", $(this).attr("href"));
+
+                function jump() {
+
+                    window.frames["test"].location.href = "baseframe.html";
+                }
+                
+                //function btn() {
+                $(".layui-icon").click(function () {
+                    $(".layui-side").attr('style','width:100px');
+
+                    $().attr('style','overfloat:hidden');
+
+                    })
+                //}
+               
+
+            })
+            //// nav收缩展开
+            //$('.nav-item>a').on('click', function () {
+            //    if (!$('.nav').hasClass('nav-mini')) {
+            //        if ($(this).next().css('display') == "none") {
+            //            //展开未展开
+            //            $('.nav-item').children('ul').slideUp(300);
+            //            $(this).next('ul').slideDown(300);
+            //            $(this).parent('li').addClass('lay-show').siblings('li').removeClass('lay-show');
+            //        } else {
+            //            //收缩已展开
+            //            $(this).next('ul').slideUp(300);
+            //            $('.nav-item.nav-show').removeClass('nav-show');
+            //        }
+            //    }
+            //});
+
+            //on(events,[selector],[data],fn)data:当一个事件被触发时要传递event.data给事件处理函数。
+            $('#mini').on('click', function () {
+                //检查当前的元素是否含有某个特定的类，如果有，则返回true。这其实就是 is("." + class)。
+                if (!$('.layui-side').hasClass('nav-mini')) {
+                    //从所有匹配的元素中删除全部或者指定的类。
+                    $('.layui-nav-item').removeClass('nav-show');
+                    //从每一个匹配的元素中删除一个属性
+                    $('.layui-nav-item').children('dl').removeAttr('style');
+                    $('.layui-side').addClass('nav-mini');
+                } else {
+                    $('.layui-side').removeClass('nav-mini');
+                }
+            });
+
+        })
+    </script>
+</body>
+</html>

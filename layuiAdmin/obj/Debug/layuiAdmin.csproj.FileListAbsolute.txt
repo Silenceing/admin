@@ -1,0 +1,6 @@
+D:\workspace\C#\layuiAdmin\layuiAdmin\bin\layuiAdmin.dll.config
+D:\workspace\C#\layuiAdmin\layuiAdmin\bin\layuiAdmin.dll
+D:\workspace\C#\layuiAdmin\layuiAdmin\bin\layuiAdmin.pdb
+D:\workspace\C#\layuiAdmin\layuiAdmin\obj\Debug\layuiAdmin.dll
+D:\workspace\C#\layuiAdmin\layuiAdmin\obj\Debug\layuiAdmin.pdb
+D:\workspace\C#\layuiAdmin\layuiAdmin\obj\Debug\layuiAdmin.csprojResolveAssemblyReference.cache
